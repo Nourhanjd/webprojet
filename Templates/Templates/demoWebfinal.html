@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumino - Emotional Support LLM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a1128;
+        }
+        header {
+            background-color: #0a1128;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .product-image {
+            width: 1vw;
+            border: 0 rem;
+            padding: 0px;
+            box-shadow: 0 4px 6px #0a1128;
+        }
+        .product-info {
+            width: 50%;
+            padding: 20px;
+            box-shadow: 0 4px 6px #0a1128;
+        }
+        .product-info h2 {
+            margin-top: 0;
+            color:cyan;
+        }
+        .product-info p {
+            margin-bottom: 20px;
+            font-family: var(--awb-typography2-font-family);
+            font-weight: var(--awb-typography2-font-weight);
+            font-style: var(--awb-typography2-font-style);
+            color: aliceblue;
+        }
+        .product-info button {
+            background-color: aliceblue;
+            color: #0a1128;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px #0a1128;
+        }
+        .product-info button:hover {
+            background-color:#0a1128;
+        }
+        .footer {
+            background-color: #0a1128;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        .gif-section {
+    background-color: #0a1128 ; 
+    padding: 20px;
+    width: 40%;
+}
+.fab {
+  padding: 10px;
+  color:#ffff; /* Replace with your brand color */
+}
+.icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.2s ease-in-out;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lumino - Emotional Support LLM</h1>
+    </header>
+    <div class="container">
+    <div class="container">
+      <div class="product-section">
+          <div class="product-image">
+              <img src="{{ url_for('static', filename='images/lumino234.jpg') }}" alt="Lumino a friend by your side"/>
+          </div>
+          <div class="product-info">
+    <h2>Introducing Lumino</h2>
+    <p>Lumino is an advanced emotional support LLM that can help you manage your emotions and improve your overall well-being. It uses cutting-edge AI technology to provide personalized support and guidance.</p>
+    <p>Lumino is designed to be your constant companion, helping you navigate through life's challenges and providing the emotional support you need.</p>
+    <a href="/chat" style="display: inline-block; padding: 10px 20px; border: 2px solid #0a1128; color: #0a1128; background-color: #fff; text-decoration: none; border-radius: 5px;">Get Started</a>
+      </div>
+</div>
+</div>
+<div> 
+<h2 style="color: cyan;">Who is Lumino ?</h2>
+<div>
+  <video width="320" height="240" controls>
+    <source src="{{ url_for('static', filename='videos/Untitled Video.mp4')}}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+
+
+</div>
+<div class="container">
+<div class="product-section">
+<div class="product-image">
+  <img src="{{ url_for('static', filename='images/artefact-illustration.png') }}" alt="Lumino"/>
+</div>
+<div class="product-info">
+  <h2>Why Lumino?</h2>
+  <p style="color: #fff;"> Lumino is here to listen and support, not diagnose or treat. I offer practical tools and connect you to resources. Remember, I'm a tool, prioritize professional help for complex issues. Use me wisely, well-being first.</p>
+</div>
+</div>
+</div>
+
+</div>
+    <footer class="footer">
+        <footer>
+              <div class="social-media">
+                <span class="icon"><i class="fab fa-instagram"></i></span>
+                <span class="icon"><i class="fab fa-linkedin-in"></i></span>
+                <span class="icon"><i class="fab fa-twitter"></i></span>
+              </div>
+            <p>&copy; 2024 Lumino. All rights reserved.</p>
+    </footer>
+</body>
+</html>

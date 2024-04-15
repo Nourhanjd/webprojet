@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Accounts</title>
+    <style>
+        body {
+            background-color: #10182f;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            color: cyan;
+        }
+
+        .container {
+            max-width: 800px; /* Adjust max-width as needed */
+            margin: 20px auto;
+            display: flex;
+        }
+
+        .table-container {
+            flex: 1;
+        }
+
+        table {
+            width: auto; /* Set table width to auto */
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #10182f;
+            color: cyan;
+        }
+
+        td {
+            background-color: #10182f;
+            color: #fff;
+        }
+
+        .image-container {
+            flex: 1;
+            text-align: right;
+			margin-right: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%; /* Ensure the image doesn't exceed container width */
+            height: auto;
+            display: block;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #10182f;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Users Accounts</h1>
+    <div class="container">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <form action="{{ url_for('chat') }}" method="get">
+                <button type="submit">Go back to Chat</button>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/users_accounts.jpg') }}" alt="Image">
+        </div>
+    </div>
+</body>
+</html>

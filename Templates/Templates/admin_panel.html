@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        /* Include the styles here */
+        body {
+            background-color: #10182f;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: fit-content; /* Adjust to your preference */
+            margin: 0 auto; /* This will center the container */
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            color: cyan;
+        }
+
+        p {
+            color: #fff;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #10182f;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <<div class="container">
+        <img src="{{ url_for('static', filename='images/admin_banner.png') }}" alt="Image">
+        <h1>Welcome, Admin</h1>
+        <p>What would you like to do?</p>
+        <form action="{{ url_for('users_accounts') }}" method="get">
+            <button type="submit">View Users Accounts</button>
+        </form>
+        <form action="{{ url_for('chat') }}" method="get">
+            <button type="submit">Go to Chat</button>
+        </form>
+    </div>
+</body>
+</html>

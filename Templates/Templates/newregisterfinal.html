@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM - Register</title>
+    <style>
+    body {
+      background-color: #10182f; 
+      color: #fff; 
+      font-family: 'Roboto', sans-serif;
+      margin: 0; 
+    }
+    .header {
+      padding: 1rem;
+      text-align: center;
+      background-color: #10182f; 
+      color: #fff; 
+    }
+    .header h1 {
+      color: #fff; 
+    }
+    .content {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #10182f; 
+    }
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      color: cyan; 
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #10182f; 
+      color: #fff; 
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      box-sizing: border-box;
+      border: none;
+      border-radius: 4px;
+      background-color: #fff; 
+      color: #10182f; 
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #ccc; 
+    }
+    .label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <script>
+        window.onload = function() {
+          {% for message in messages %}
+            alert("{{ message }}");
+          {% endfor %}
+        };
+      </script>
+    {% endif %}
+  {% endwith %}
+  <header class="header">
+    <h1>Lumino</h1>
+  </header>
+  <div class="content">
+    <h1>Create an Account</h1>
+    <form method="POST" action="/register">
+      <label for="firstname" class="label">First Name</label>
+      <input type="text" name="first_name" id="firstname" required><br>
+      <label for="lastname" class="label">Last Name</label>
+      <input type="text" name="last_name" id="lastname" required><br>
+      <label for="email" class="label">Email</label>
+      <input type="email" id="email" name="email" required><br>
+      <label for="password" class="label">Password</label>
+      <input type="password" id="password" name="password" required><br>
+      <label for="confirmPassword" class="label">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirm_password" required><br>
+      <button type="submit" class="button">Create Account</button>
+    </form>
+
+  </div>
+</body>
+
+</html>

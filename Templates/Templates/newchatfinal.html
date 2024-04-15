@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumino</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh; 
+      background-color: #10182f; 
+      color: #fff; 
+    }
+
+    .header {
+      padding: 1rem;
+      width: 100%;
+      text-align: center;
+      background-color: #10182f; 
+      color: #fff; 
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: #fff; 
+    }
+
+    .content {
+      padding: 2rem;
+      width: 70%;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      color: #212529;
+    }
+
+    .prompt {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: cyan; 
+    }
+
+    .input {
+      border: 2px solid #dee2e6;
+      background-color: #f6f7f8;
+      color: #212529; 
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-top: 1.5rem;
+    }
+
+    .button {
+      background-color: #fff;
+      color: #10182f; 
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      margin: 0.5rem;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #ccc;
+    }
+
+    .feedback {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .feedback-button {
+      font-size: 24px;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+
+    .feedback-button:hover {
+      color: cyan;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <p style="color: cyan;">{{ user_greeting }}, how can I help you today?</p>
+    <textarea class="input" placeholder="Enter a prompt here"></textarea>
+    <div class="buttons">
+        <button class="button">Give me a beginner's guide to an activity</button>
+        <button class="button">Compare the differences between pickleball and tennis</button>
+        <button class="button">What are tips to improve public speaking skills?</button>
+        <button class="button">Draft an email with a packing list for an upcoming trip</button>
+    </div>
+    <div class="feedback">
+        <button class="feedback-button" id="thumbs-up">👍</button>
+        <button class="feedback-button" id="thumbs-down">👎</button>
+    </div>
+    <span class="updates">See the latest updates to Lumino App</span>
+    <form action="{{ url_for('logout') }}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+    {% if 'user_first_name' in session and session['user_first_name'] == 'Admin' %}
+    <form action="{{ url_for('users_accounts') }}" method="get">
+        <button type="submit">View Users Accounts</button>
+    </form>
+    {% endif %}
+  </div>
+  <!-- Script to handle feedback -->
+  <script>
+    document.getElementById('thumbs-up').addEventListener('click', function() {
+        alert('Thanks for your feedback!');
+    });
+
+    document.getElementById('thumbs-down').addEventListener('click', function() {
+        alert('We appreciate your input. Please let us know how we can improve.');
+    });
+  </script>
+</body>
+</html>
+

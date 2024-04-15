@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple CAPTCHA</title>
+    <style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: grey;
+    }
+    
+    .captcha-container {
+        text-align: center;
+    }
+    
+    #captcha-canvas {
+        border: 10px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    #captcha-input {
+        margin: 10px 0;
+        padding: 5px;
+        font-size: 1rem;
+    }
+    
+    #captcha-submit {
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <script>
+        window.onload = function() {
+          {% for message in messages %}
+            alert("{{ message }}");
+          {% endfor %}
+        };
+      </script>
+    {% endif %}
+  {% endwith %}
+  <div class="captcha-container">
+    <h1>Enter Captcha</h1>
+    <p>{{ captcha_text }}</p>
+    <form method="POST" action="/captcha">
+      <input type="text" id="captcha-input" name="captcha-text" placeholder="Enter the text shown" required>
+      <button id="captcha-submit" type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</body>
+
+</html>
